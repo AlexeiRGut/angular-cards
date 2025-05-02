@@ -29,11 +29,11 @@ export class CardComponent implements OnChanges, AfterViewInit {
   }
 
   ngOnChanges() {
-    // let card = document.querySelector('.card') as HTMLDivElement;
-    // let status = card.querySelector('.status') as HTMLSpanElement;
-    // let colour = this.setCardColour(status.innerText);
-    // this.renderer.setStyle(card, 'borderColor', colour);
-    // this.renderer.setStyle(status, 'color', colour);
+    let statusText = this.status.nativeElement.innerText;
+    let colour = this.setCardColour(statusText);
+
+    this.renderer.setStyle(this.card.nativeElement, 'border-color', colour);
+    this.renderer.setStyle(this.status.nativeElement, 'color', colour);
   }
 
   setCardColour(status: string) {
